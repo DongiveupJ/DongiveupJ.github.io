@@ -16,16 +16,19 @@
             overflow: hidden;
             align-items: center;
         }
+
         .logo {
-            width: 80px;
-            height: 50px;
+            width: 150px;
+            height: 100px;
             margin-right: 20px;
             align-items: center;
         }
-        .logo img { 
+
+        .logo img {
             max-width: 100%;
-            height: auto;
+            height: 100;
         }
+
         .search-input {
             width: 100%;
             padding: 12px 40px 12px 20px;
@@ -45,17 +48,178 @@
             align-items: center;
             cursor: pointer;
         }
+
+        #header {
+            display: flex;
+            /* Flexbox를 사용하여 내부 요소들을 나란히 배치 */
+            justify-content: space-between;
+            /* 로고와 검색창 사이의 간격을 균등하게 분배 */
+            align-items: center;
+            /* 세로 중앙 정렬 */
+            position: fixed;
+            /* 페이지 상단에 고정 */
+            top: 0;
+            /* 상단에서 0px의 위치 */
+            width: 100%;
+            /* 전체 페이지 너비 */
+            height: 80px;
+            /* header 높이 */
+            background-color: #fff;
+            /* 배경색 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* 하단에 그림자 효과 추가 */
+            padding: 10px 20px;
+            /* 내부 패딩 */
+            z-index: 1000;
+            /* 다른 요소들 위에 표시되도록 z-index 설정 */
+        }
+
+        #nav {
+            margin-top: 80px;
+            /* header 높이를 고려한 마진 */
+            padding: 20px;
+            /* 내부 여백 */
+            width: 100%;
+            /* 전체 페이지 너비 */
+            height: 115px;
+            background-color: #3261fd;
+            /* 배경색 */
+            box-sizing: border-box;
+            /* 패딩과 마진을 포함한 너비와 높이 계산 */
+        }
+
+        .lay {
+            overflow: hidden;
+            align-items: center;
+            display: flex;
+            /* Flexbox를 적용 */
+            justify-content: center;
+            /* 가운데 정렬 */
+        }
+
+        .lay>li {
+            list-style: none;
+            padding: 15px;
+            font-size: 25px;
+            color: rgb(243, 238, 238);
+
+        }
+
+        .lay>li:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .lay>li:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        #section1 {
+            padding: 20px;
+            background-color: #f9f9f9;
+            overflow: hidden;
+            /* 섹션의 오버플로우를 숨깁니다 */
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: nowrap;
+            /* 이미지들을 한줄로 배치합니다 */
+            overflow-x: auto;
+            /* 가로 스크롤바를 활성화합니다 */
+            gap: 10px;
+            -webkit-overflow-scrolling: touch;
+            /* 모바일 기기에서의 스크롤 성능 개선 */
+        }
+
+        .img-with-text {
+            min-width: 150px;
+            /* 이미지의 최소 너비 설정 */
+            text-align: center;
+            /* 텍스트 중앙 정렬 */
+        }
+
+
+        .img-with-text {
+            flex: 1 1 calc(33.333% - 20px);
+            /* 기본 크기, 최소 크기 */
+            max-width: 300px;
+            /* 최대 크기 */
+            text-align: center;
+            /* 텍스트 중앙 정렬 */
+        }
+
+        .img-with-text img {
+            width: 100%;
+            /* 이미지가 컨테이너 크기에 맞게 조정됨 */
+            height: auto;
+            /* 원본 비율 유지 */
+            max-width: 200px;
+            /* 이미지 최대 크기 */
+            min-width: 120px;
+            /* 이미지 최소 크기 */
+        }
+
+        .img-with-text p {
+            margin-top: 5px;
+            /* 이미지와 텍스트 간격 추가 */
+            color: #333;
+            /* 텍스트 색상 설정 */
+            font-size: 14px;
+            /* 텍스트 크기 설정 */
+        }
+
+        #section-title> {
+            margin-bottom: 10px;
+            /* "추천 음악" 텍스트와 이미지 컨테이너 사이의 간격 */
+        }
     </style>
 </head>
 
 <body>
-    <div class="logo"> <!--로고-->
-        <img src="logo.png" alt="Logo" class="logo img" id="logo img">
+    <div id="header">
+        <div class="logo"> <!--로고-->
+            <img src="logo.png" alt="Logo" class="logo img" id="logo img">
+        </div>
+        <div class="search-container"> <!--검색창-->
+            <input type="text" class="search-input" id="search-input" placeholder="노래, 앨범, 아티스트 검색">
+            <span class="search-icon" id="search-icon">&#128269;</span>
+        </div>
     </div>
-    <div class="search-container"> <!--검색창-->
-        <input type="text" class="search-input" id="search-input" placeholder="검색">
-        <span class="search-icon" id="search-icon">&#128269;</span>
+
+    <div id="nav">
+        <ul class="lay">
+            <li>차트</li>
+            <li>최신음악</li>
+            <li>장르별</li>
+            <li>박하소식</li>
+            <li>마이뮤직</li>
+            <li>고객센터</li>
+        </ul>
     </div>
+
+    <div id="section1">
+        <div class="image-container">
+            <h3 class="section-title">추천 음악</h3>
+            <div class="img-with-text">
+                <img src="image1.jpg" alt="Image 1">
+                <p>비틀즈</p>
+            </div>
+            <div class="img-with-text">
+                <img src="image2.jpg" alt="Image 2">
+                <p>나얼</p>
+            </div>
+            <div class="img-with-text">
+                <img src="image3.jpg" alt="Image 3">
+                <p>서로를 위한 것</p>
+            </div>
+            <div class="img-with-text">
+                <img src="image4.jpg" alt="Image 4">
+                <p>박효신</p>
+            </div>
+            <!-- 추가 이미지와 텍스트 컨테이너 -->
+        </div>
+    </div>
+
 
     <script>
         const searchInput = document.getElementById('search-input');
