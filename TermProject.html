@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>박하 플레이어</title>
-    </head>
-    <body>
-        <form action="/검색결과를처리할서버의URL" method="post">
-            <label for="search">검색:</label>
-            <input type="text" id="search" name="search">
-            <input type="submit" value="검색">
-        </form>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박하 플레이어</title>
+    <style>
+        .search-container {
+            margin: auto;
+            width: 340px;
+            height: 50px;
+            position: relative;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            overflow: hidden;
+            align-items: center;
+        }
+        .logo {
+            width: 80px;
+            height: 50px;
+            margin-right: 20px;
+            align-items: center;
+        }
+        .logo img { 
+            max-width: 100%;
+            height: auto;
+        }
+        .search-input {
+            width: 100%;
+            padding: 12px 40px 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo"> <!--로고-->
+        <img src="logo.png" alt="Logo" class="logo img" id="logo img">
+    </div>
+    <div class="search-container"> <!--검색창-->
+        <input type="text" class="search-input" id="search-input" placeholder="검색">
+        <span class="search-icon" id="search-icon">&#128269;</span>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const searchIcon = document.getElementById('search-icon'); // 검색 아이콘 선택
+
+        searchInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                executeSearch();
+            }
+        });
+        searchIcon.addEventListener('click', function () {
+            executeSearch();
+        });
+        // 검색 실행 함수
+        function executeSearch() {
+            const searchInput = document.getElementById('search-input');
+            const query = searchInput.value;
+            if (query.trim() !== "") {
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+            }
+        }
+    </script>
+</body>
+
 </html>
