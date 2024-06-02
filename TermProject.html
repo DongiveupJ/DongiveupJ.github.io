@@ -49,6 +49,15 @@
             cursor: pointer;
         }
 
+        .menu {
+            margin-right: 70px;
+        }
+
+        .menu span {
+            margin: 10px;
+            cursor: pointer;
+        }
+
         #header {
             display: flex;
             /* Flexbox를 사용하여 내부 요소들을 나란히 배치 */
@@ -89,7 +98,9 @@
         }
 
         .lay {
-            overflow: hidden;
+
+            white-space: nowrap;
+            /* 항목들이 줄바꿈 되지 않도록 설정 */
             align-items: center;
             display: flex;
             /* Flexbox를 적용 */
@@ -102,7 +113,10 @@
             padding: 15px;
             font-size: 25px;
             color: rgb(243, 238, 238);
-
+            display: inline-block;
+            /* 항목들을 인라인 블록 요소로 설정 */
+            cursor: pointer;
+            margin: 5px;
         }
 
         .lay>li:first-child {
@@ -113,11 +127,21 @@
             border-radius: 0 10px 10px 0;
         }
 
-        #section1 {
+        #mid {
+            display: flex;
+            gap: 30px;
+            position: relative;
             padding: 20px;
-            background-color: #f9f9f9;
+            height: 100%;
+
+        }
+
+        .section {
+            padding: 20px;
+            margin-bottom: 10px;
+            background-color: #faeded;
             overflow: hidden;
-            /* 섹션의 오버플로우를 숨깁니다 */
+            width: 100%;
         }
 
         .image-container {
@@ -129,6 +153,7 @@
             gap: 10px;
             -webkit-overflow-scrolling: touch;
             /* 모바일 기기에서의 스크롤 성능 개선 */
+            cursor: pointer;
         }
 
         .img-with-text {
@@ -172,6 +197,36 @@
             margin-bottom: 10px;
             /* "추천 음악" 텍스트와 이미지 컨테이너 사이의 간격 */
         }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .section-container {
+            width: 80%;
+            /* 필요한 경우 추가 스타일 */
+        }
+
+        .side-section {
+            height: 100%;
+            width: 300px;
+            position: relative;
+            /* 필요한 경우 추가 스타일 */
+        }
+
+        .side-content {
+            position: absolute;
+            height: 863px;
+            width: 300px;
+            background-color: #497dec;
+            margin-left: 20px;
+            padding: 15px;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 
@@ -183,6 +238,11 @@
         <div class="search-container"> <!--검색창-->
             <input type="text" class="search-input" id="search-input" placeholder="노래, 앨범, 아티스트 검색">
             <span class="search-icon" id="search-icon">&#128269;</span>
+        </div>
+        <div class="menu">
+            <span id="login">로그인</span>
+
+            <span id="join">회원가입</span>
         </div>
     </div>
 
@@ -196,29 +256,87 @@
             <li>고객센터</li>
         </ul>
     </div>
-
-    <div id="section1">
-        <div class="image-container">
-            <h3 class="section-title">추천 음악</h3>
-            <div class="img-with-text">
-                <img src="image1.jpg" alt="Image 1">
-                <p>비틀즈</p>
+    <div id="mid">
+        <div class="section-container">
+            <div class="section" id="section1">
+                <div class="image-container">
+                    <h3 class="section-title">추천 음악</h3>
+                    <div class="img-with-text">
+                        <img src="image1.jpg" alt="Image 1">
+                        <p>비틀즈</p>
+                    </div>
+                    <div class="img-with-text">
+                        <img src="image2.jpg" alt="Image 2">
+                        <p>나얼</p>
+                    </div>
+                    <div class="img-with-text">
+                        <img src="image3.jpg" alt="Image 3">
+                        <p>서로를 위한 것</p>
+                    </div>
+                    <div class="img-with-text">
+                        <img src="image4.jpg" alt="Image 4">
+                        <p>박효신</p>
+                    </div>
+                    <!-- 추가 이미지와 텍스트 컨테이너 -->
+                </div>
             </div>
-            <div class="img-with-text">
-                <img src="image2.jpg" alt="Image 2">
-                <p>나얼</p>
+            <div class="section" id="section2">
+                <div class="image-container">
+                    <h3 class="section-title">다시 듣기</h3>
+                    <div class="img-with-text">
+                        <img src="image1.jpg" alt="Image 1">
+                        <p>비틀즈</p>
+                    </div>
+                    <div class="img-with-text">
+                        <img src="image2.jpg" alt="Image 2">
+                        <p>나얼</p>
+                    </div>
+                    <div class="img-with-text">
+                        <img src="image3.jpg" alt="Image 3">
+                        <p>서로를 위한 것</p>
+                    </div>
+                    <div class="img-with-text">
+                        <img src="image4.jpg" alt="Image 4">
+                        <p>박효신</p>
+                    </div>
+                    <!-- 추가 이미지와 텍스트 컨테이너 -->
+                </div>
             </div>
-            <div class="img-with-text">
-                <img src="image3.jpg" alt="Image 3">
-                <p>서로를 위한 것</p>
+            <div class="section" id="section3">
+                <div class="image-container">
+                    <h3 class="section-title">기분 전환</h3>
+                    <div class="img-with-text">
+                        <img src="image1.jpg" alt="Image 1">
+                        <p>비틀즈</p>
+                    </div>
+                    <div class="img-with-text">
+                        <img src="image2.jpg" alt="Image 2">
+                        <p>나얼</p>
+                    </div>
+                    <div class="img-with-text">
+                        <img src="image3.jpg" alt="Image 3">
+                        <p>서로를 위한 것</p>
+                    </div>
+                    <div class="img-with-text">
+                        <img src="image4.jpg" alt="Image 4">
+                        <p>박효신</p>
+                    </div>
+                    <!-- 추가 이미지와 텍스트 컨테이너 -->
+                </div>
             </div>
-            <div class="img-with-text">
-                <img src="image4.jpg" alt="Image 4">
-                <p>박효신</p>
-            </div>
-            <!-- 추가 이미지와 텍스트 컨테이너 -->
         </div>
+        <div class="side-section">
+            <div class="side-content">
+                <h2>Playlists</h2>
+                <ul id="playlist">
+                    <!-- Playlist items will be added here -->
+                </ul>
+            </div>
+        </div>
+
+
     </div>
+
 
 
     <script>
@@ -241,6 +359,23 @@
                 window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
             }
         }
+        //재생목록 추가 함수
+        function getPlaylistFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const playlist = urlParams.get('playlist'); // 'playlist'는 URL 파라미터의 키입니다.
+            if (playlist) {
+                addPlaylistItem(playlist); // 재생목록에 항목 추가
+            }
+        }
+
+        function addPlaylistItem(itemName) {
+            const ul = document.getElementById("playlist");
+            const li = document.createElement("li");
+            li.appendChild(document.createTextNode(itemName));
+            ul.appendChild(li);
+        }
+        document.addEventListener("DOMContentLoaded", getPlaylistFromURL);
+
     </script>
 </body>
 
