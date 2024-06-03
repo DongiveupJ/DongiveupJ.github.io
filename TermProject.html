@@ -14,8 +14,17 @@
             border: 1px solid #ccc;
             border-radius: 25px;
             overflow: hidden;
+            display: flex;
             align-items: center;
         }
+
+        .search-input {
+            flex-grow: 1;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
 
         .logo {
             width: 150px;
@@ -29,15 +38,7 @@
             height: 100;
         }
 
-        .search-input {
-            width: 100%;
-            padding: 12px 40px 12px 20px;
-            border: 1px solid #ddd;
-            border-radius: 50px;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
+
 
         .search-icon {
             position: absolute;
@@ -208,6 +209,7 @@
 
         .section-container {
             width: 80%;
+
             /* 필요한 경우 추가 스타일 */
         }
 
@@ -221,11 +223,14 @@
         .side-content {
             position: absolute;
             height: 863px;
-            width: 300px;
+            width: 250px;
             background-color: #497dec;
             margin-left: 20px;
             padding: 15px;
             box-sizing: border-box;
+            right: 0px;
+            overflow-x: auto;
+            /* 오른쪽 빈 공간 설정 */
         }
     </style>
 </head>
